@@ -6,9 +6,9 @@ require_once('../tcpdf/tcpdf.php');
 require_once('mail_headers.php');
 
 // Get form data
-$email = $_POST['sip_growth_email'];
-$data  = json_decode($_POST['sip_growth_emailData'], true); // Decode the JSON string
-$calcEmailType = $_POST['sip_growth_calctype']; // Calculator type
+$email = $_POST['sip_needs_email'];
+$data  = json_decode($_POST['sip_needs_emailData'], true); // Decode the JSON string
+$calcEmailType = $_POST['sip_needs_calctype']; // Calculator type
 
 // Validate the data
 if (json_last_error() !== JSON_ERROR_NONE || !is_array($data)) {
@@ -26,16 +26,20 @@ $html = '
         <th>VALUE</th>
     </tr>
     <tr>
-        <td>Total Value (Rs.)</td>
-        <td>'.$data['futureValue'].'</td>
+        <td>Required SIP Amount (Rs.)</td>
+        <td>'.$data['requiredSIPAmount'].'</td>
     </tr>
     <tr>
-        <td>Invested Amount (Rs.)</td>
-        <td>'.$data['totalInvested'].'</td>
+        <td>Target Amount Required (Rs.)</td>
+        <td>'.$data['targetAmountRequired'].'</td>
     </tr>
     <tr>
-        <td>Estimated Returns (Rs.)</td>
-        <td>'.$data['estimatedReturns'].'</td>
+        <td>Projected Investment (Rs.)</td>
+        <td>'.$data['projectedInvestment'].'</td>
+    </tr>
+    <tr>
+        <td>Growth Multiple</td>
+        <td>'.$data['growthMultiple'].'</td>
     </tr>
 </table>
 ';
@@ -51,7 +55,7 @@ $pdf->Output($pdfFilePath, 'F'); // Save to file
 
 // Send email with PDF attachment
 $to = $email;
-$subject = 'SIP Growth Plan';
+$subject = 'SIP Needs Plan';
 $message = 'Please find the attached PDF with your loan calculation results.';
 
 // Set headers for CC and BCC
