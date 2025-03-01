@@ -182,12 +182,12 @@
                       <p>Final Value</p>
                       <h2 id="swp_finalValue">₹10,154</h2><hr>
 
-                        <form id="emailForm" method="POST" action="send_email.php">
+                        <form id="swp_emailForm" method="POST">
                           <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Email ID" aria-label="Email ID" aria-describedby="button-addon2" id="email" name="email" required>
-                            <input type="hidden" id="emailData" name="emailData">
-                            <input type="hidden" id="calcEmailType" name="calcEmailType" value="emiHomeLoan">
-                            <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Send to email</button>
+                            <input type="text" class="form-control" placeholder="Email ID" aria-label="Email ID" aria-describedby="button-addon3" id="swp_email" name="swp_email" required>
+                            <input type="hidden" id="swp_emailData" name="swp_emailData">
+                            <input type="hidden" id="swp_calctype" name="swp_calctype" value="swpcalc">
+                            <button class="btn btn-outline-secondary" type="submit" id="button-addon3">Send to email</button>
                           </div>
                         </form>
                     </div>
@@ -257,6 +257,8 @@
                                 <input type="hidden" id="calcEmailType" name="calcEmailType" value="emiHomeLoan">
                                 <button type="submit" class="btn btn-primary">Send Results via Email</button> -->
                             </form>
+                            
+                            <div id="emi_message" class="mt-3 pt-3"></div>
                         </div>
                     </div>
                     <div class="col-lg-1 col-xs-12">&nbsp;</div>
@@ -444,11 +446,41 @@
       document.getElementById('swp_investedAmount').innerText = `₹${formatNumber(investedAmount)}`;
       document.getElementById('swp_totalWithdrawal').innerText = `₹${formatNumber(totalWithdrawal)}`;
       document.getElementById('swp_finalValue').innerText = `₹${formatNumber(finalValue)}`;
+      
+      // Prepare email data as an array/object
+      const emailData = {
+        investedAmount: `${formatNumber(investedAmount)}`,
+        totalWithdrawal: `${formatNumber(totalWithdrawal)}`,
+        finalValue: `${formatNumber(finalValue)}`,
+      };
 
-      // Prepare email data
-      const emailData = `Invested Amount: ₹${formatNumber(investedAmount)}\nTotal Withdrawal: ₹${formatNumber(totalWithdrawal)}\nFinal Value: ₹${formatNumber(finalValue)}`;
-      document.getElementById('emailData').value = emailData;
-  });
+      // Store the array/object in the hidden input field as a JSON string
+      document.getElementById('swp_emailData').value = JSON.stringify(emailData);
+      console.log(emailData);
+    });
+    // Handle SWP Calculator email form submission
+    document.getElementById('swp_emailForm').addEventListener('submit', async function (event) {
+      event.preventDefault();
+
+      const swp_email = document.getElementById('swp_email').value;
+      const swp_emailData = document.getElementById('swp_emailData').value;
+      const swp_calctype = document.getElementById('swp_calctype').value;
+      try {
+          const response = await fetch('mails/swp_mail.php', {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/x-www-form-urlencoded',
+              },
+              body: `swp_email=${encodeURIComponent(swp_email)}&swp_emailData=${encodeURIComponent(swp_emailData)}&swp_calctype=${encodeURIComponent(swp_calctype)}`,
+          });
+
+          const result = await response.text();
+          document.getElementById('message').innerHTML = result;
+      } catch (error) {
+          console.error('Error:', error);
+          document.getElementById('message').innerHTML = '<div class="alert alert-danger">An error occurred. Please try again.</div>';
+      }
+    });
 </script>
   <!-- Bootstrap JS (with Popper) -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
