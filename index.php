@@ -6,14 +6,14 @@
   <title>ZWealth - Calculators</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
-    h1, h2, h3, h4, h5, h6, p, .form-label {color: #585858 !important;text-align: center;}
-  .nav-pills .nav-link.active, .nav-pills .show>.nav-link {background-color: #7ed957;color: #fff;}
-  .nav-pills .nav-link.active#fill-home-tab, .nav-pills .nav-link.active#fill-profile-tab, .nav-pills .nav-link.active#fill-contact-tab{background-color: #4aa523;}
-  .nav-link{border-bottom: 1px solid #7ed957;font-size: 18px;font-weight: 700;letter-spacing: 1.1px;color: #585858;text-transform: uppercase;}
-  .nav-pills .nav-link{border-radius:0}
-  .nav-link:focus, .nav-link:hover{color: #000;}
-  .btn-primary, .btn-primary:hover{background-color: #7ed957;border: 0;border-radius: 0;}
-  .result{box-shadow: 0 0 5px #ccc;margin-top: 10px;padding: 10px;min-height: 280px;position: relative;}
+    h1, h2, h3, h4, h5, h6, p {color: #585858 !important;text-align: center;}
+    .nav-pills .nav-link.active, .nav-pills .show>.nav-link {background-color: #7ed957;color: #fff;}
+    .nav-pills .nav-link.active#fill-home-tab, .nav-pills .nav-link.active#fill-profile-tab, .nav-pills .nav-link.active#fill-contact-tab{background-color: #4aa523;}
+    .nav-link{border-bottom: 1px solid #7ed957;font-size: 18px;font-weight: 700;letter-spacing: 1.1px;color: #585858;text-transform: uppercase;}
+    .nav-pills .nav-link{border-radius:0}
+    .nav-link:focus, .nav-link:hover{color: #000;}
+    .btn-primary, .btn-primary:hover{background-color: #7ed957;border: 0;border-radius: 0;}
+    .result{box-shadow: 0 0 5px #ccc;margin-top: 10px;padding: 10px;min-height: 280px;position: relative;}
   </style>
 </head>
 <body>
@@ -50,6 +50,84 @@
         <div class="tab-content mt-3" id="nestedTabContent">
           <div class="tab-pane fade show active" id="nested-content1" role="tabpanel" aria-labelledby="nested-tab1">
             <p class="col-md-10 mx-auto">Retiring comfortably is not an impossibility if you know how to invest and save wisely. To know how much return of investments you will be able to gain, you need the services of a retirement calculator. Remember that planning for the future is a mixture of both fiscal and investment prudence.</p>
+
+            <div class="row">
+              <div class="col-lg-1 col-xs-12">&nbsp;</div>
+              <div class="col-md-5">
+                <form id="retirementForm">
+                  <div class="mb-3">
+                    <div class="row">
+                      <div class="col">
+                        <label for="currentAge" class="form-label">Current Age (Years)</label>
+                        <input type="number" class="form-control" id="currentAge" name="currentAge" required value="27">
+                      </div>
+                      <div class="col">
+                        <label for="retirementAge" class="form-label">Desired Retirement Age (Years)</label>
+                        <input type="number" class="form-control" id="retirementAge" name="retirementAge" required value="60">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mb-3">
+                    <div class="row">
+                      <div class="col">
+                        <label for="lifeExpectancy" class="form-label">Life Expectancy (Years)</label>
+                        <input type="number" class="form-control" id="lifeExpectancy" name="lifeExpectancy" required value="80">
+                      </div>
+                      <div class="col">
+                        <label for="inflationRate" class="form-label">Expected Inflation Rate (%)</label>
+                        <input type="number" class="form-control" id="inflationRate" name="inflationRate" required value="6">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mb-3">
+                      <label for="monthlyIncomeRequired" class="form-label">Monthly Income Required in Retirement Years (₹)</label>
+                      <input type="number" class="form-control" id="monthlyIncomeRequired" name="monthlyIncomeRequired" required value="100000">
+                  </div>
+                  <div class="mb-3">
+                    <div class="row">
+                      <div class="col">
+                        <label for="preRetirementReturn" class="form-label">Expected Return on Investment (Pre-retirement) (%)</label>
+                        <input type="number" class="form-control" id="preRetirementReturn" name="preRetirementReturn" required value="12">
+                      </div>
+                      <div class="col">
+                        <label for="postRetirementReturn" class="form-label">Expected Return on Investment (Post-retirement) (%)</label>
+                        <input type="number" class="form-control" id="postRetirementReturn" name="postRetirementReturn" required value="8">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mb-3">
+                      <label for="existingRetirementFund" class="form-label">Existing Retirement Fund (₹)</label>
+                      <input type="number" class="form-control" id="existingRetirementFund" name="existingRetirementFund" required value="100000">
+                  </div>
+                  <button type="submit" class="btn btn-primary">Calculate</button>
+                </form>
+              </div>
+              <div class="col-md-5">
+                <div class="result" id="result">
+
+                  <h5><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-calculator" viewBox="0 0 16 16">  <path d="M12 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/><path d="M4 2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5zm0 4a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5z"/></svg> RETIREMENT PLAN</h5><hr>
+
+                  <p>Annual Income Required Immediately After Retirement</p>
+                  <h2 id="annualIncomeRequired">₹0</h2><hr>
+                  <p>Total Corpus Required for After Retirement</p>
+                  <h2 id="totalCorpusRequired">₹0</h2><hr>
+                  <p>Monthly Savings Required to Accumulate the Corpus</p>
+                  <h2 id="monthlySavingsRequired">₹0</h2>
+                      
+                  <form id="retirement_emailForm" method="POST">
+                    <div class="input-group mb-3">
+                      <input type="text" class="form-control" placeholder="Email ID" aria-label="Email ID" aria-describedby="button-addon5" id="retirement_email" name="retirement_email" required>
+                      <input type="hidden" id="retirement_emailData" name="retirement_emailData" value="">
+                      <input type="hidden" id="retirement_calctype" name="retirement_calctype" value="sipGrowth">
+                      <button class="btn btn-outline-secondary" type="submit" id="button-addon5">Send to email</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div class="col-lg-1 col-xs-12">&nbsp;</div>
+            </div>
+            <div id="retirement_message" class="mt-3 pt-3"></div>
+
           </div>
           <div class="tab-pane fade" id="nested-content2" role="tabpanel" aria-labelledby="nested-tab2">
             <h5>Other Goal Calculator</h5>
@@ -320,6 +398,78 @@
   </div>
 
   <script>
+
+  document.getElementById('retirementForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    // Get input values
+    const currentAge = parseInt(document.getElementById('currentAge').value);
+    const retirementAge = parseInt(document.getElementById('retirementAge').value);
+    const lifeExpectancy = parseInt(document.getElementById('lifeExpectancy').value);
+    const monthlyIncomeRequired = parseFloat(document.getElementById('monthlyIncomeRequired').value);
+    const inflationRate = parseFloat(document.getElementById('inflationRate').value) / 100;
+    const preRetirementReturn = parseFloat(document.getElementById('preRetirementReturn').value) / 100;
+    const postRetirementReturn = parseFloat(document.getElementById('postRetirementReturn').value) / 100;
+    const existingRetirementFund = parseFloat(document.getElementById('existingRetirementFund').value);
+
+    // Step 1: Calculate Annual Income Required Immediately After Retirement
+    const yearsToRetirement = retirementAge - currentAge;
+    const annualIncomeRequired = monthlyIncomeRequired * 12 * Math.pow(1 + inflationRate, yearsToRetirement);
+
+    // Step 2: Calculate Total Corpus Required for After Retirement
+    const retirementYears = lifeExpectancy - retirementAge;
+    const totalCorpusRequired = annualIncomeRequired * ((1 - Math.pow(1 + postRetirementReturn, -retirementYears)) / postRetirementReturn);
+
+    // Step 3: Calculate Monthly Savings Required to Accumulate the Corpus
+    const futureValueOfExistingFund = existingRetirementFund * Math.pow(1 + preRetirementReturn, yearsToRetirement);
+    const monthlyRate = preRetirementReturn / 12;
+    const totalPayments = yearsToRetirement * 12;
+    const monthlySavingsRequired = (totalCorpusRequired - futureValueOfExistingFund) * (monthlyRate / (Math.pow(1 + monthlyRate, totalPayments) - 1));
+
+    // Format numbers with commas for better readability
+    const formatNumber = (num) => num.toLocaleString('en-IN', { maximumFractionDigits: 0 });
+
+    // Display results
+    document.getElementById('annualIncomeRequired').innerText = `₹${formatNumber(annualIncomeRequired)}`;
+    document.getElementById('totalCorpusRequired').innerText = `₹${formatNumber(totalCorpusRequired)}`;
+    document.getElementById('monthlySavingsRequired').innerText = `₹${formatNumber(monthlySavingsRequired)}`;
+
+    // Prepare email data as an array/object
+    const emailData = {
+      annualIncomeRequired: `${formatNumber(annualIncomeRequired)}`,
+      totalCorpusRequired: `${formatNumber(totalCorpusRequired)}`,
+      monthlySavingsRequired: `${formatNumber(monthlySavingsRequired)}`,
+    };
+
+    // Store the array/object in the hidden input field as a JSON string
+    document.getElementById('retirement_emailData').value = JSON.stringify(emailData);
+    console.log(emailData);
+
+  });
+    // Handle Retirement Calculator email form submission
+    document.getElementById('retirement_emailForm').addEventListener('submit', async function (event) {
+    event.preventDefault();
+
+    const retirement_email = document.getElementById('retirement_email').value;
+    const retirement_emailData = document.getElementById('retirement_emailData').value;
+    const retirement_calctype = document.getElementById('retirement_calctype').value;
+    try {
+        const response = await fetch('mails/retirement_mail.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: `retirement_email=${encodeURIComponent(retirement_email)}&retirement_emailData=${encodeURIComponent(retirement_emailData)}&retirement_calctype=${encodeURIComponent(retirement_calctype)}`,
+        });
+
+        const result = await response.text();
+        document.getElementById('retirement_message').innerHTML = result;
+    } catch (error) {
+        console.error('Error:', error);
+        document.getElementById('retirement_message').innerHTML = '<div class="alert alert-danger alert-dismissible fade show">An error occurred. Please try again.<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
+    }
+  });
+
     // Home Loan EMI Calculator
     document.getElementById('emiForm').addEventListener('submit', function (event) {
       event.preventDefault();
@@ -363,7 +513,6 @@
 
       // Store the array/object in the hidden input field as a JSON string
       document.getElementById('emi_emailData').value = JSON.stringify(emailData);
-      console.log(emailData);
     });
     // Handle Home Loan EMI Calculator email form submission
     document.getElementById('emi_emailForm').addEventListener('submit', async function (event) {
@@ -598,6 +747,6 @@
       }
     });
 </script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
