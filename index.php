@@ -4,9 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ZWealth - Calculators</title>
-  <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
   <style>
     h1, h2, h3, h4, h5, h6, p, .form-label {color: #585858 !important;text-align: center;}
   .nav-pills .nav-link.active, .nav-pills .show>.nav-link {background-color: #7ed957;color: #fff;}
@@ -15,11 +13,7 @@
   .nav-pills .nav-link{border-radius:0}
   .nav-link:focus, .nav-link:hover{color: #000;}
   .btn-primary, .btn-primary:hover{background-color: #7ed957;border: 0;border-radius: 0;}
-  .result{box-shadow: 0 0 5px #ccc;
-    margin-top: 10px;
-    padding: 10px;
-    min-height: 280px;
-    position: relative;}
+  .result{box-shadow: 0 0 5px #ccc;margin-top: 10px;padding: 10px;min-height: 280px;position: relative;}
   </style>
 </head>
 <body>
@@ -125,7 +119,7 @@
               <div class="col-md-5">
                 <div class="result" id="result">
 
-                  <h5><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-calculator" viewBox="0 0 16 16">  <path d="M12 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/><path d="M4 2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5zm0 4a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5z"/></svg> SIP GROWTH CALCULATOR</h5><hr>
+                  <h5><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-calculator" viewBox="0 0 16 16">  <path d="M12 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/><path d="M4 2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5zm0 4a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5z"/></svg> SIP GROWTH</h5><hr>
 
                   <h5>TOTAL VALUE</h5>
                   <h2 id="sip_growth_totalValue">₹4,12,432</h2><hr>
@@ -153,12 +147,62 @@
               </div>
               <div class="col-lg-1 col-xs-12">&nbsp;</div>
             </div>
+            <div id="sip_growth_message" class="mt-3 pt-3"></div>
 
           </div>
+
           <div class="tab-pane fade" id="nested-content5" role="tabpanel" aria-labelledby="nested-tab5">
-            <h5>SIP Needs Calculator</h5>
-            <p>The SIP calculator helps estimate the potential growth of your Systematic Investment Plan (SIP) investment over your chosen time frame. SIP is a convenient method to save for your long-term financial goals.</p>
+            <p class="col-md-10 mx-auto">The SIP calculator helps estimate the potential growth of your Systematic Investment Plan (SIP) investment over your chosen time frame. SIP is a convenient method to save for your long-term financial goals.</p>
+            <div class="row">
+              <div class="col-lg-1 col-xs-12">&nbsp;</div>
+                <div class="col-md-5">
+                  <form id="sipNeedsForm">
+                    <div class="mb-3">
+                        <label for="sip_needs_targetAmount" class="form-label">Target Amount Needed</label>
+                        <input type="number" class="form-control" id="sip_needs_targetAmount" name="sip_needs_targetAmount" required value="10000000">
+                    </div>
+                    <div class="mb-3">
+                        <label for="sip_needs_investmentPeriod" class="form-label">Period (Years)</label>
+                        <input type="number" class="form-control" id="sip_needs_investmentPeriod" name="sip_needs_investmentPeriod" required value="10">
+                    </div>
+                    <div class="mb-3">
+                        <label for="sip_needs_expectedReturns" class="form-label">Expected Returns (%)</label>
+                        <input type="number" class="form-control" id="sip_needs_expectedReturns" name="sip_needs_expectedReturns" required value="12">
+                    </div>
+                    <div class="mb-3">
+                        <label for="sip_needs_expectedInflation" class="form-label">Expected Inflation (%)</label>
+                        <input type="number" class="form-control" id="sip_needs_expectedInflation" name="sip_needs_expectedInflation" required value="8">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Calculate SIP Needs</button>
+                  </form>
+                </div>
+                <div class="col-md-5">
+                    <div class="result" id="result">
+                      <h5><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-calculator" viewBox="0 0 16 16">  <path d="M12 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/><path d="M4 2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5zm0 4a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5z"/></svg> SIP NEED</h5><hr>
+
+                      <p>Required SIP Amount</p>
+                      <h2 id="sip_needs_requiredSIPAmount">₹96,365</h2><hr>
+                      <p>Target Amount Required (Adjusted for Inflation)</p>
+                      <h2 id="sip_needs_targetAmountRequired">₹2,15,89,250</h2><hr>
+                      <p>Projected Investment</p>
+                      <h2 id="sip_needs_projectedInvestment">₹1,15,63,817</h2><hr>
+                      <p id="sip_needs_growthMultiple">Growth Multiple 1.87 times</p>
+
+                        <form id="sip_needs_emailForm" method="POST">
+                          <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Email ID" aria-label="Email ID" aria-describedby="button-addon4" id="sip_needs_email" name="sip_needs_email" required>
+                            <input type="hidden" id="sip_needs_emailData" name="sip_needs_emailData">
+                            <input type="hidden" id="sip_needs_calctype" name="sip_needs_calctype" value="sipneedcalc">
+                            <button class="btn btn-outline-secondary" type="submit" id="button-addon4">Send to email</button>
+                          </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-1 col-xs-12">&nbsp;</div>
+            </div>
+            <div id="sip_needs_message" class="mt-3 pt-3"></div>
           </div>
+
           <div class="tab-pane fade" id="nested-content6" role="tabpanel" aria-labelledby="nested-tab6">
             <p class="col-md-10 mx-auto">An SWP (Systematic Withdrawal Plan) calculator is used to calculate the amount that you will earn from your investment in an SWP or Systematic Withdrawal Plan. The SWP calculator is thus a useful tool that will help you to easily choose the right SWP scheme for yourself, based on the returns that you will get from the scheme.</p>
 
@@ -208,84 +252,71 @@
                 </div>
                 <div class="col-lg-1 col-xs-12">&nbsp;</div>
             </div>
+            <div id="swp_message" class="mt-3 pt-3"></div>
 
           </div>
           <div class="tab-pane fade" id="nested-content7" role="tabpanel" aria-labelledby="nested-tab7">
-                <p class="col-md-10 mx-auto">Understanding your monthly loan payments is crucial for effective financial management, especially when budgeting for goals like home renovations or debt reduction. Using an EMI calculator simplifies this process. It can help you quickly estimate your payments by entering the loan amount, term, and interest rate, giving you an instant view of your monthly instalments.</p>
-
-                <div class="row pt-3">
+            <p class="col-md-10 mx-auto">Understanding your monthly loan payments is crucial for effective financial management, especially when budgeting for goals like home renovations or debt reduction. Using an EMI calculator simplifies this process. It can help you quickly estimate your payments by entering the loan amount, term, and interest rate, giving you an instant view of your monthly instalments.</p>
+              <div class="row">
                   <div class="col-lg-1 col-xs-12">&nbsp;</div>
-                    <div class="col-md-5">
-                        <form id="emiForm">
-                            <div class="mb-3">
-                                <label for="loanAmount" class="form-label">Loan Amount (Principal)</label>
-                                <input type="number" class="form-control" id="loanAmount" value="1000000" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="interestRate" class="form-label">Rate of Interest (Annual %)</label>
-                                <input type="number" class="form-control" id="interestRate" value="8" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="loanTenure" class="form-label">Loan Tenure (Years)</label>
-                                <input type="number" class="form-control" id="loanTenure" value="10" required>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Calculate EMI</button>
+                  <div class="col-md-5">
+                      <form id="emiForm">
+                          <div class="mb-3">
+                              <label for="loanAmount" class="form-label">Loan Amount (Principal)</label>
+                              <input type="number" class="form-control" id="loanAmount" value="1000000" required>
+                          </div>
+                          <div class="mb-3">
+                              <label for="interestRate" class="form-label">Rate of Interest (Annual %)</label>
+                              <input type="number" class="form-control" id="interestRate" value="8" required>
+                          </div>
+                          <div class="mb-3">
+                              <label for="loanTenure" class="form-label">Loan Tenure (Years)</label>
+                              <input type="number" class="form-control" id="loanTenure" value="10" required>
+                          </div>
+                          <button type="submit" class="btn btn-primary">Calculate EMI</button>
+                      </form>
+                  </div>
+                  <div class="col-md-5">
+                      <div class="result" id="result">
+                        <h5><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-calculator" viewBox="0 0 16 16">  <path d="M12 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/><path d="M4 2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5zm0 4a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5z"/></svg> EMI CALCULATOR</h5><hr>
+
+                        <h5>MONTHLY EMI</h5>
+                        <h2 id="monthlyEMI">₹12,133</h2><hr>
+                        <table class="table table-responsive">
+                          <tbody>
+                            <tr>
+                              <td>Principal Amount</td>
+                              <td><p id="principalAmount" style="text-align: right;">₹10,00,000</p></td>
+                            </tr>
+                            <tr>
+                              <td>Interest Amount</td>
+                              <td><p id="interestAmount" style="text-align: right;">₹4,55,931</p></td>
+                            </tr>
+                            <tr>
+                            <td>Total Payable</td>
+                              <td><p id="totalPayable" style="text-align: right;">₹14,55,931</p></td>
+                            </tr>
+                          </tbody>
+                        </table>
+
+                        <form id="emi_emailForm" method="POST">
+                          <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Email ID" aria-label="Email ID" aria-describedby="button-addon2" id="emi_email" name="emi_email" required>
+                            <input type="hidden" id="emi_emailData" name="emi_emailData" value="">
+                            <input type="hidden" id="emi_calctype" name="emi_calctype" value="emiHomeLoan">
+                            <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Send to email</button>
+                          </div>
                         </form>
-                    </div>
-                    <div class="col-md-5">
-                        <div class="result" id="result">
-                            <h5><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-calculator" viewBox="0 0 16 16">  <path d="M12 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/><path d="M4 2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5zm0 4a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5z"/></svg> EMI CALCULATOR</h5><hr>
-
-                            <h5>MONTHLY EMI</h5>
-                            <h2 id="monthlyEMI">₹12,133</h2><hr>
-                            <table class="table table-responsive">
-                              <tbody>
-                                <tr>
-                                  <td>Principal Amount</td>
-                                  <td><p id="principalAmount" style="text-align: right;">₹10,00,000</p></td>
-                                </tr>
-                                <tr>
-                                  <td>Interest Amount</td>
-                                  <td><p id="interestAmount" style="text-align: right;">₹4,55,931</p></td>
-                                </tr>
-                                <tr>
-                                <td>Total Payable</td>
-                                  <td><p id="totalPayable" style="text-align: right;">₹14,55,931</p></td>
-                                </tr>
-                              </tbody>
-                            </table>
-
-                            <form id="emi_emailForm" method="POST">
-                              <div class="input-group mb-3">
-                                <input type="text" class="form-control" placeholder="Email ID" aria-label="Email ID" aria-describedby="button-addon2" id="emi_email" name="emi_email" required>
-                                <input type="hidden" id="emi_emailData" name="emi_emailData" value="">
-                                <input type="hidden" id="emi_calctype" name="emi_calctype" value="emiHomeLoan">
-                                <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Send to email</button>
-                              </div>
-
-                                <!-- <div class="mb-3">
-                                    <label for="email" class="form-label">Enter your Email</label>
-                                    <input type="email" class="form-control" id="email" name="email" required>
-                                </div>
-                                <input type="hidden" id="emailData" name="emailData">
-                                <input type="hidden" id="calcEmailType" name="calcEmailType" value="emiHomeLoan">
-                                <button type="submit" class="btn btn-primary">Send Results via Email</button> -->
-                            </form>
-                            
-                            <div id="emi_message" class="mt-3 pt-3"></div>
-                        </div>
-                    </div>
-                    <div class="col-lg-1 col-xs-12">&nbsp;</div>
-                </div>
+                      </div>
+                  </div>
+                  <div class="col-lg-1 col-xs-12">&nbsp;</div>
+              </div>
+              <div id="emi_message" class="mt-3 pt-3"></div>
 
             </div>
-
         </div>
-
       </div>
-
     </div>
-    <div id="message" class="mt-3 pt-3"></div>
   </div>
 
   <script>
@@ -334,7 +365,6 @@
       document.getElementById('emi_emailData').value = JSON.stringify(emailData);
       console.log(emailData);
     });
-
     // Handle Home Loan EMI Calculator email form submission
     document.getElementById('emi_emailForm').addEventListener('submit', async function (event) {
       event.preventDefault();
@@ -352,10 +382,10 @@
           });
 
           const result = await response.text();
-          document.getElementById('message').innerHTML = result;
+          document.getElementById('emi_message').innerHTML = result;
       } catch (error) {
           console.error('Error:', error);
-          document.getElementById('message').innerHTML = '<div class="alert alert-danger">An error occurred. Please try again.</div>';
+          document.getElementById('emi_message').innerHTML = '<div class="alert alert-danger alert-dismissible fade show">An error occurred. Please try again.<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
       }
     });
 
@@ -397,30 +427,99 @@
       // Store the array/object in the hidden input field as a JSON string
       document.getElementById('sip_growth_emailData').value = JSON.stringify(emailData);
       console.log(emailData);
-  });
-  // Handle SIP GrowthCalculator email form submission
-  document.getElementById('sip_growth_emailForm').addEventListener('submit', async function (event) {
-    event.preventDefault();
+    });
+    // Handle SIP GrowthCalculator email form submission
+    document.getElementById('sip_growth_emailForm').addEventListener('submit', async function (event) {
+      event.preventDefault();
 
-    const sip_growth_email = document.getElementById('sip_growth_email').value;
-    const sip_growth_emailData = document.getElementById('sip_growth_emailData').value;
-    const sip_growth_calctype = document.getElementById('sip_growth_calctype').value;
-    try {
-        const response = await fetch('mails/sip_growth_mail.php', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: `sip_growth_email=${encodeURIComponent(sip_growth_email)}&sip_growth_emailData=${encodeURIComponent(sip_growth_emailData)}&sip_growth_calctype=${encodeURIComponent(sip_growth_calctype)}`,
-        });
+      const sip_growth_email = document.getElementById('sip_growth_email').value;
+      const sip_growth_emailData = document.getElementById('sip_growth_emailData').value;
+      const sip_growth_calctype = document.getElementById('sip_growth_calctype').value;
+      try {
+          const response = await fetch('mails/sip_growth_mail.php', {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/x-www-form-urlencoded',
+              },
+              body: `sip_growth_email=${encodeURIComponent(sip_growth_email)}&sip_growth_emailData=${encodeURIComponent(sip_growth_emailData)}&sip_growth_calctype=${encodeURIComponent(sip_growth_calctype)}`,
+          });
 
-        const result = await response.text();
-        document.getElementById('message').innerHTML = result;
-    } catch (error) {
-        console.error('Error:', error);
-        document.getElementById('message').innerHTML = '<div class="alert alert-danger">An error occurred. Please try again.</div>';
-    }
-  });
+          const result = await response.text();
+          document.getElementById('sip_growth_message').innerHTML = result;
+      } catch (error) {
+          console.error('Error:', error);
+          document.getElementById('sip_growth_message').innerHTML = '<div class="alert alert-danger alert-dismissible fade show">An error occurred. Please try again.<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
+      }
+    });
+
+    // sip needs
+    document.getElementById('sipNeedsForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      // Get input values
+      const targetAmount = parseFloat(document.getElementById('sip_needs_targetAmount').value);
+      const investmentPeriod = parseInt(document.getElementById('sip_needs_investmentPeriod').value);
+      const expectedReturns = parseFloat(document.getElementById('sip_needs_expectedReturns').value) / 100; // Convert percentage to decimal
+      const expectedInflation = parseFloat(document.getElementById('sip_needs_expectedInflation').value) / 100; // Convert percentage to decimal
+
+      // Step 1: Calculate the Target Amount Required (Adjusted for Inflation)
+      const targetAmountRequired = targetAmount * Math.pow(1 + expectedInflation, investmentPeriod);
+
+      // Step 2: Calculate the Required SIP Amount
+      const monthlyRate = expectedReturns / 12; // Monthly interest rate
+      const totalPayments = investmentPeriod * 12; // Total number of payments
+      const requiredSIPAmount = (targetAmountRequired * monthlyRate) / (Math.pow(1 + monthlyRate, totalPayments) - 1);
+
+      // Step 3: Calculate the Projected Investment
+      const projectedInvestment = requiredSIPAmount * totalPayments;
+
+      // Step 4: Calculate the Growth Multiple
+      const growthMultiple = targetAmountRequired / projectedInvestment;
+
+      // Format numbers with commas for better readability
+      const formatNumber = (num) => num.toLocaleString('en-IN', { maximumFractionDigits: 0 });
+
+      // Display results
+      document.getElementById('sip_needs_requiredSIPAmount').innerText = `₹${formatNumber(requiredSIPAmount)}`;
+      document.getElementById('sip_needs_targetAmountRequired').innerText = `₹${formatNumber(targetAmountRequired)}`;
+      document.getElementById('sip_needs_projectedInvestment').innerText = `₹${formatNumber(projectedInvestment)}`;
+      document.getElementById('sip_needs_growthMultiple').innerText = `Growth Multiple ${growthMultiple.toFixed(2)} times`;
+      
+      // Prepare email data as an array/object
+      const emailData = {
+        requiredSIPAmount: `${formatNumber(requiredSIPAmount)}`,
+        targetAmountRequired: `${formatNumber(targetAmountRequired)}`,
+        projectedInvestment: `${formatNumber(projectedInvestment)}`,
+        growthMultiple: `${growthMultiple.toFixed(2)} times`,
+      };
+
+      // Store the array/object in the hidden input field as a JSON string
+      document.getElementById('sip_needs_emailData').value = JSON.stringify(emailData);
+      console.log(emailData);
+    });
+    // Handle SIP need Calculator email form submission
+    document.getElementById('sip_needs_emailForm').addEventListener('submit', async function (event) {
+      event.preventDefault();
+
+      const sip_needs_email = document.getElementById('sip_needs_email').value;
+      const sip_needs_emailData = document.getElementById('sip_needs_emailData').value;
+      const sip_needs_calctype = document.getElementById('sip_needs_calctype').value;
+      try {
+          const response = await fetch('mails/sip_needs_mail.php', {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/x-www-form-urlencoded',
+              },
+              body: `sip_needs_email=${encodeURIComponent(sip_needs_email)}&sip_needs_emailData=${encodeURIComponent(sip_needs_emailData)}&sip_needs_calctype=${encodeURIComponent(sip_needs_calctype)}`,
+          });
+
+          const result = await response.text();
+          document.getElementById('sip_needs_message').innerHTML = result;
+      } catch (error) {
+          console.error('Error:', error);
+          document.getElementById('sip_needs_message').innerHTML = '<div class="alert alert-danger alert-dismissible fade show">An error occurred. Please try again.<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
+      }
+    });
 
     // SWP Calculator
     document.getElementById('swpForm').addEventListener('submit', function(event) {
@@ -492,14 +591,13 @@
           });
 
           const result = await response.text();
-          document.getElementById('message').innerHTML = result;
+          document.getElementById('swp_message').innerHTML = result;
       } catch (error) {
           console.error('Error:', error);
-          document.getElementById('message').innerHTML = '<div class="alert alert-danger">An error occurred. Please try again.</div>';
+          document.getElementById('swp_message').innerHTML = '<div class="alert alert-danger alert-dismissible fade show">An error occurred. Please try again.<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
       }
     });
 </script>
-  <!-- Bootstrap JS (with Popper) -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
