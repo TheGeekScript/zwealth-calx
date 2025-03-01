@@ -84,25 +84,25 @@
         
         <div class="tab-content mt-3" id="nestedTabContent">
           <div class="tab-pane fade show active" id="nested-content4" role="tabpanel" aria-labelledby="nested-tab4">
-            <h5>SIP Growth Calculator</h5>
-            <p>The SIP calculator helps estimate the potential growth of your Systematic Investment Plan (SIP) investment over your chosen time frame. SIP is a convenient method to save for your long-term financial goals.</p>
+            <p class="col-md-10 mx-auto">The SIP calculator helps estimate the potential growth of your Systematic Investment Plan (SIP) investment over your chosen time frame. SIP is a convenient method to save for your long-term financial goals.</p>
 
             <div class="row">
-              <div class="col-md-6">
-                  <form id="sipForm">
+            <div class="col-lg-1 col-xs-12">&nbsp;</div>
+              <div class="col-md-5">
+                  <form id="sipGrowthForm">
                       <div class="mb-3">
-                          <label for="sip_monthlyInvestment" class="form-label">Monthly Investment Amount</label>
-                          <input type="number" class="form-control" id="sip_monthlyInvestment" required value="10000">
+                          <label for="sip_growth_monthlyInvestment" class="form-label">Monthly Investment Amount</label>
+                          <input type="number" class="form-control" id="sip_growth_monthlyInvestment" name="sip_growth_monthlyInvestment" required value="5000">
                       </div>
                       <div class="mb-3">
-                          <label for="sip_investmentPeriod" class="form-label">Period (Years)</label>
-                          <input type="number" class="form-control" id="sip_investmentPeriod" required value="10">
+                          <label for="sip_growth_investmentPeriod" class="form-label">Period (Years)</label>
+                          <input type="number" class="form-control" id="sip_growth_investmentPeriod" name="sip_growth_investmentPeriod" required value="5">
                       </div>
                       <div class="mb-3">
-                          <label for="sip_expectedReturns" class="form-label">Expected Returns (%)</label>
-                          <input type="number" class="form-control" id="sip_expectedReturns" required value="12">
+                          <label for="sip_growth_expectedReturns" class="form-label">Expected Returns (%)</label>
+                          <input type="number" class="form-control" id="sip_growth_expectedReturns" name="sip_growth_expectedReturns" required value="12">
                       </div>
-                      <div class="mb-3">
+                      <!-- <div class="mb-3">
                 
                           <label for="sip_growthType" class="form-label">Expected Growth in Savings</label>
                           <div class="row">
@@ -118,26 +118,40 @@
                             </div>
                           </div>
 
-                      </div>
+                      </div> -->
                       <button type="submit" class="btn btn-primary">Calculate SIP</button>
                   </form>
               </div>
-              <div class="col-md-6">
-                  <div class="result" id="result">
-                      <h5>Calculation Results:</h5>
-                      <p id="sip_totalInvested">Total Amount Invested: ₹0</p>
-                      <p id="sip_futureValue">Estimated Future Value: ₹0</p>
-                      <p id="sip_growthMultiple">Growth Multiple: 0 times</p>
-                      <form id="emailForm" method="POST" action="send_email.php">
-                          <div class="mb-3">
-                              <label for="email" class="form-label">Enter your Email</label>
-                              <input type="email" class="form-control" id="email" name="email" required>
-                          </div>
-                          <input type="hidden" id="emailData" name="emailData">
-                          <button type="submit" class="btn btn-primary">Send Results via Email</button>
-                      </form>
-                  </div>
+              <div class="col-md-5">
+                <div class="result" id="result">
+
+                  <h5><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-calculator" viewBox="0 0 16 16">  <path d="M12 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/><path d="M4 2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5zm0 4a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5z"/></svg> SIP GROWTH CALCULATOR</h5><hr>
+
+                  <h5>TOTAL VALUE</h5>
+                  <h2 id="sip_growth_totalValue">₹4,12,432</h2><hr>
+                  <table class="table table-responsive">
+                    <tbody>
+                      <tr>
+                        <td>Invested Amount</td>
+                        <td><p id="sip_growth_investedAmount" style="text-align: right;">₹3,00,000</p></td>
+                      </tr>
+                      <tr>
+                        <td>Estimated Returns</td>
+                        <td><p id="sip_growth_estimatedReturns" style="text-align: right;">₹1,12,432</p></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <form id="sip_growth_emailForm" method="POST">
+                    <div class="input-group mb-3">
+                      <input type="text" class="form-control" placeholder="Email ID" aria-label="Email ID" aria-describedby="button-addon4" id="sip_growth_email" name="sip_growth_email" required>
+                      <input type="hidden" id="sip_growth_emailData" name="sip_growth_emailData" value="">
+                      <input type="hidden" id="sip_growth_calctype" name="sip_growth_calctype" value="sipGrowth">
+                      <button class="btn btn-outline-secondary" type="submit" id="button-addon4">Send to email</button>
+                    </div>
+                  </form>
+                </div>
               </div>
+              <div class="col-lg-1 col-xs-12">&nbsp;</div>
             </div>
 
           </div>
@@ -345,64 +359,67 @@
       }
     });
 
-    // SIP Calculator
-    document.getElementById('sipForm').addEventListener('submit', function(event) {
+    // SIP Growth Calculator
+    document.getElementById('sipGrowthForm').addEventListener('submit', function(event) {
       event.preventDefault();
 
       // Get input values
-      const monthlyInvestment = parseFloat(document.getElementById('sip_monthlyInvestment').value);
-      const investmentPeriod = parseInt(document.getElementById('sip_investmentPeriod').value);
-      const expectedReturns = parseFloat(document.getElementById('sip_expectedReturns').value) / 100; // Convert percentage to decimal
-      const growthType = document.getElementById('sip_growthType').value;
-      const growthAmount = parseFloat(document.getElementById('expected_growth_in_saving_amt').value);
+      const monthlyInvestment = parseFloat(document.getElementById('sip_growth_monthlyInvestment').value);
+      const investmentPeriod = parseInt(document.getElementById('sip_growth_investmentPeriod').value);
+      const expectedReturns = parseFloat(document.getElementById('sip_growth_expectedReturns').value) / 100; // Convert percentage to decimal
 
-      // Calculate total amount invested
+      // Calculate total invested amount
       const totalInvested = monthlyInvestment * investmentPeriod * 12;
 
-      // Calculate future value based on growth type
-      let futureValue;
-      if (growthType === 'yearly_percent') {
-          // Growth is a percentage per year
-          const yearlyRate = expectedReturns + (growthAmount / 100); // Add growth percentage to expected returns
-          const monthlyRate = yearlyRate / 12; // Monthly interest rate
-          const totalPayments = investmentPeriod * 12; // Total number of payments
-          futureValue = monthlyInvestment * (((Math.pow(1 + monthlyRate, totalPayments) - 1) / monthlyRate) * (1 + monthlyRate));
-      } else if (growthType === 'half_yearly_rs') {
-          // Growth is a fixed amount added half-yearly
-          const halfYearlyGrowth = growthAmount;
-          const totalHalfYears = investmentPeriod * 2;
-          let totalFutureValue = 0;
-          for (let i = 1; i <= totalHalfYears; i++) {
-              totalFutureValue += monthlyInvestment * 6 * Math.pow(1 + expectedReturns / 2, i);
-              totalFutureValue += halfYearlyGrowth * Math.pow(1 + expectedReturns / 2, i);
-          }
-          futureValue = totalFutureValue;
-      } else if (growthType === 'yearly_rs') {
-          // Growth is a fixed amount added yearly
-          const yearlyGrowth = growthAmount;
-          const totalYears = investmentPeriod;
-          let totalFutureValue = 0;
-          for (let i = 1; i <= totalYears; i++) {
-              totalFutureValue += monthlyInvestment * 12 * Math.pow(1 + expectedReturns, i);
-              totalFutureValue += yearlyGrowth * Math.pow(1 + expectedReturns, i);
-          }
-          futureValue = totalFutureValue;
-      }
+      // Calculate future value using SIP formula
+      const monthlyRate = expectedReturns / 12; // Monthly interest rate
+      const totalPayments = investmentPeriod * 12; // Total number of payments
+      const futureValue = monthlyInvestment * ((Math.pow(1 + monthlyRate, totalPayments) - 1) / monthlyRate * (1 + monthlyRate));
 
-      // Calculate growth multiple
-      const growthMultiple = futureValue / totalInvested;
+      // Calculate estimated returns
+      const estimatedReturns = futureValue - totalInvested;
 
       // Format numbers with commas for better readability
       const formatNumber = (num) => num.toLocaleString('en-IN', { maximumFractionDigits: 0 });
 
       // Display results
-      document.getElementById('sip_totalInvested').innerText = `Total Amount Invested: ₹${formatNumber(totalInvested)}`;
-      document.getElementById('sip_futureValue').innerText = `Estimated Future Value: ₹${formatNumber(futureValue.toFixed(0))}`;
-      document.getElementById('sip_growthMultiple').innerText = `Growth Multiple: ${growthMultiple.toFixed(2)} times`;
+      document.getElementById('sip_growth_totalValue').innerText = `₹${formatNumber(futureValue)}`;
+      document.getElementById('sip_growth_investedAmount').innerText = `₹${formatNumber(totalInvested)}`;
+      document.getElementById('sip_growth_estimatedReturns').innerText = `₹${formatNumber(estimatedReturns)}`;
+      
+      // Prepare email data as an array/object
+      const emailData = {
+        futureValue: `${formatNumber(futureValue)}`,
+        totalInvested: `${formatNumber(totalInvested)}`,
+        estimatedReturns: `${formatNumber(estimatedReturns)}`,
+      };
 
-      // Prepare email data
-      const emailData = `Total Amount Invested: ₹${formatNumber(totalInvested)}\nEstimated Future Value: ₹${formatNumber(futureValue.toFixed(0))}\nGrowth Multiple: ${growthMultiple.toFixed(2)} times`;
-      document.getElementById('emailData').value = emailData;
+      // Store the array/object in the hidden input field as a JSON string
+      document.getElementById('sip_growth_emailData').value = JSON.stringify(emailData);
+      console.log(emailData);
+  });
+  // Handle SIP GrowthCalculator email form submission
+  document.getElementById('sip_growth_emailForm').addEventListener('submit', async function (event) {
+    event.preventDefault();
+
+    const sip_growth_email = document.getElementById('sip_growth_email').value;
+    const sip_growth_emailData = document.getElementById('sip_growth_emailData').value;
+    const sip_growth_calctype = document.getElementById('sip_growth_calctype').value;
+    try {
+        const response = await fetch('mails/sip_growth_mail.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: `sip_growth_email=${encodeURIComponent(sip_growth_email)}&sip_growth_emailData=${encodeURIComponent(sip_growth_emailData)}&sip_growth_calctype=${encodeURIComponent(sip_growth_calctype)}`,
+        });
+
+        const result = await response.text();
+        document.getElementById('message').innerHTML = result;
+    } catch (error) {
+        console.error('Error:', error);
+        document.getElementById('message').innerHTML = '<div class="alert alert-danger">An error occurred. Please try again.</div>';
+    }
   });
 
     // SWP Calculator
