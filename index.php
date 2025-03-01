@@ -6,6 +6,7 @@
   <title>ZWealth - Calculators</title>
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
   <style>
     h1, h2, h3, h4, h5, h6, p, .form-label {color: #585858 !important;text-align: center;}
   .nav-pills .nav-link.active, .nav-pills .show>.nav-link {background-color: #7ed957;color: #fff;}
@@ -240,11 +241,11 @@
                               </tbody>
                             </table>
 
-                            <form id="emailForm" method="POST" action="send_email.php">
+                            <form id="emi_emailForm" method="POST">
                               <div class="input-group mb-3">
-                                <input type="text" class="form-control" placeholder="Email ID" aria-label="Email ID" aria-describedby="button-addon2" id="email" name="email" required>
-                                <input type="hidden" id="emailData" name="emailData">
-                                <input type="hidden" id="calcEmailType" name="calcEmailType" value="emiHomeLoan">
+                                <input type="text" class="form-control" placeholder="Email ID" aria-label="Email ID" aria-describedby="button-addon2" id="emi_email" name="emi_email" required>
+                                <input type="hidden" id="emi_emailData" name="emi_emailData" value="">
+                                <input type="hidden" id="emi_calctype" name="emi_calctype" value="emiHomeLoan">
                                 <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Send to email</button>
                               </div>
 
@@ -268,7 +269,7 @@
       </div>
 
     </div>
-    Messages: <div id="message" class="mt-3 pt-3"></div>
+    <div id="message" class="mt-3 pt-3"></div>
   </div>
 
   <script>
@@ -303,39 +304,39 @@
       document.getElementById('interestAmount').innerText = `₹${formatNumber(interestAmount)}`;
       document.getElementById('totalPayable').innerText = `₹${formatNumber(totalPayable)}`;
 
-      // Prepare email data
-      const emailData = `
-        Principal Amount: ₹${formatNumber(loanAmount)}
-        Rate of Interest: ${formatNumber(annualInterestRate)}
-        Loan Tenure: ${formatNumber(loanTenureYears)}
-        Monthly EMI: ₹${formatNumber(emi)}
-        Interest Amount: ₹${formatNumber(interestAmount)}
-        Total Payable: ₹${formatNumber(totalPayable)}
-      `;
-      document.getElementById('emailData').value = emailData.trim();
+      // Prepare email data as an array/object
+      const emailData = {
+        principalAmount: `${formatNumber(loanAmount)}`,
+        interestRate: annualInterestRate,
+        loanTenure: loanTenureYears,
+        monthlyEMI: `${formatNumber(emi)}`,
+        interestAmount: `${formatNumber(interestAmount)}`,
+        totalPayable: `${formatNumber(totalPayable)}`,
+      };
+
+      // Store the array/object in the hidden input field as a JSON string
+      document.getElementById('emi_emailData').value = JSON.stringify(emailData);
+      console.log(emailData);
     });
 
     // Handle Home Loan EMI Calculator email form submission
-    document.getElementById('emailForm').addEventListener('submit', async function (event) {
+    document.getElementById('emi_emailForm').addEventListener('submit', async function (event) {
       event.preventDefault();
 
-      // Get email and form data
-      const email = document.getElementById('email').value;
-      const emailData = document.getElementById('emailData').value;
-      const calcEmailType = document.getElementById('calcEmailType').value;
-
-      // Send data to the backend
+      const emi_email = document.getElementById('emi_email').value;
+      const emi_emailData = document.getElementById('emi_emailData').value;
+      const emi_calctype = document.getElementById('emi_calctype').value;
       try {
-          const response = await fetch('send_email.php', {
+          const response = await fetch('mails/emi_mail.php', {
               method: 'POST',
               headers: {
                   'Content-Type': 'application/x-www-form-urlencoded',
               },
-              body: `email=${encodeURIComponent(email)}&emailData=${encodeURIComponent(emailData)}&calcEmailType=${encodeURIComponent(calcEmailType)}`,
+              body: `emi_email=${encodeURIComponent(emi_email)}&emi_emailData=${encodeURIComponent(emi_emailData)}&emi_calctype=${encodeURIComponent(emi_calctype)}`,
           });
 
           const result = await response.text();
-          document.getElementById('message').innerHTML = result; // Display success/error message
+          document.getElementById('message').innerHTML = result;
       } catch (error) {
           console.error('Error:', error);
           document.getElementById('message').innerHTML = '<div class="alert alert-danger">An error occurred. Please try again.</div>';
@@ -344,63 +345,63 @@
 
     // SIP Calculator
     document.getElementById('sipForm').addEventListener('submit', function(event) {
-    event.preventDefault();
+      event.preventDefault();
 
-    // Get input values
-    const monthlyInvestment = parseFloat(document.getElementById('sip_monthlyInvestment').value);
-    const investmentPeriod = parseInt(document.getElementById('sip_investmentPeriod').value);
-    const expectedReturns = parseFloat(document.getElementById('sip_expectedReturns').value) / 100; // Convert percentage to decimal
-    const growthType = document.getElementById('sip_growthType').value;
-    const growthAmount = parseFloat(document.getElementById('expected_growth_in_saving_amt').value);
+      // Get input values
+      const monthlyInvestment = parseFloat(document.getElementById('sip_monthlyInvestment').value);
+      const investmentPeriod = parseInt(document.getElementById('sip_investmentPeriod').value);
+      const expectedReturns = parseFloat(document.getElementById('sip_expectedReturns').value) / 100; // Convert percentage to decimal
+      const growthType = document.getElementById('sip_growthType').value;
+      const growthAmount = parseFloat(document.getElementById('expected_growth_in_saving_amt').value);
 
-    // Calculate total amount invested
-    const totalInvested = monthlyInvestment * investmentPeriod * 12;
+      // Calculate total amount invested
+      const totalInvested = monthlyInvestment * investmentPeriod * 12;
 
-    // Calculate future value based on growth type
-    let futureValue;
-    if (growthType === 'yearly_percent') {
-        // Growth is a percentage per year
-        const yearlyRate = expectedReturns + (growthAmount / 100); // Add growth percentage to expected returns
-        const monthlyRate = yearlyRate / 12; // Monthly interest rate
-        const totalPayments = investmentPeriod * 12; // Total number of payments
-        futureValue = monthlyInvestment * (((Math.pow(1 + monthlyRate, totalPayments) - 1) / monthlyRate) * (1 + monthlyRate));
-    } else if (growthType === 'half_yearly_rs') {
-        // Growth is a fixed amount added half-yearly
-        const halfYearlyGrowth = growthAmount;
-        const totalHalfYears = investmentPeriod * 2;
-        let totalFutureValue = 0;
-        for (let i = 1; i <= totalHalfYears; i++) {
-            totalFutureValue += monthlyInvestment * 6 * Math.pow(1 + expectedReturns / 2, i);
-            totalFutureValue += halfYearlyGrowth * Math.pow(1 + expectedReturns / 2, i);
-        }
-        futureValue = totalFutureValue;
-    } else if (growthType === 'yearly_rs') {
-        // Growth is a fixed amount added yearly
-        const yearlyGrowth = growthAmount;
-        const totalYears = investmentPeriod;
-        let totalFutureValue = 0;
-        for (let i = 1; i <= totalYears; i++) {
-            totalFutureValue += monthlyInvestment * 12 * Math.pow(1 + expectedReturns, i);
-            totalFutureValue += yearlyGrowth * Math.pow(1 + expectedReturns, i);
-        }
-        futureValue = totalFutureValue;
-    }
+      // Calculate future value based on growth type
+      let futureValue;
+      if (growthType === 'yearly_percent') {
+          // Growth is a percentage per year
+          const yearlyRate = expectedReturns + (growthAmount / 100); // Add growth percentage to expected returns
+          const monthlyRate = yearlyRate / 12; // Monthly interest rate
+          const totalPayments = investmentPeriod * 12; // Total number of payments
+          futureValue = monthlyInvestment * (((Math.pow(1 + monthlyRate, totalPayments) - 1) / monthlyRate) * (1 + monthlyRate));
+      } else if (growthType === 'half_yearly_rs') {
+          // Growth is a fixed amount added half-yearly
+          const halfYearlyGrowth = growthAmount;
+          const totalHalfYears = investmentPeriod * 2;
+          let totalFutureValue = 0;
+          for (let i = 1; i <= totalHalfYears; i++) {
+              totalFutureValue += monthlyInvestment * 6 * Math.pow(1 + expectedReturns / 2, i);
+              totalFutureValue += halfYearlyGrowth * Math.pow(1 + expectedReturns / 2, i);
+          }
+          futureValue = totalFutureValue;
+      } else if (growthType === 'yearly_rs') {
+          // Growth is a fixed amount added yearly
+          const yearlyGrowth = growthAmount;
+          const totalYears = investmentPeriod;
+          let totalFutureValue = 0;
+          for (let i = 1; i <= totalYears; i++) {
+              totalFutureValue += monthlyInvestment * 12 * Math.pow(1 + expectedReturns, i);
+              totalFutureValue += yearlyGrowth * Math.pow(1 + expectedReturns, i);
+          }
+          futureValue = totalFutureValue;
+      }
 
-    // Calculate growth multiple
-    const growthMultiple = futureValue / totalInvested;
+      // Calculate growth multiple
+      const growthMultiple = futureValue / totalInvested;
 
-    // Format numbers with commas for better readability
-    const formatNumber = (num) => num.toLocaleString('en-IN', { maximumFractionDigits: 0 });
+      // Format numbers with commas for better readability
+      const formatNumber = (num) => num.toLocaleString('en-IN', { maximumFractionDigits: 0 });
 
-    // Display results
-    document.getElementById('sip_totalInvested').innerText = `Total Amount Invested: ₹${formatNumber(totalInvested)}`;
-    document.getElementById('sip_futureValue').innerText = `Estimated Future Value: ₹${formatNumber(futureValue.toFixed(0))}`;
-    document.getElementById('sip_growthMultiple').innerText = `Growth Multiple: ${growthMultiple.toFixed(2)} times`;
+      // Display results
+      document.getElementById('sip_totalInvested').innerText = `Total Amount Invested: ₹${formatNumber(totalInvested)}`;
+      document.getElementById('sip_futureValue').innerText = `Estimated Future Value: ₹${formatNumber(futureValue.toFixed(0))}`;
+      document.getElementById('sip_growthMultiple').innerText = `Growth Multiple: ${growthMultiple.toFixed(2)} times`;
 
-    // Prepare email data
-    const emailData = `Total Amount Invested: ₹${formatNumber(totalInvested)}\nEstimated Future Value: ₹${formatNumber(futureValue.toFixed(0))}\nGrowth Multiple: ${growthMultiple.toFixed(2)} times`;
-    document.getElementById('emailData').value = emailData;
-});
+      // Prepare email data
+      const emailData = `Total Amount Invested: ₹${formatNumber(totalInvested)}\nEstimated Future Value: ₹${formatNumber(futureValue.toFixed(0))}\nGrowth Multiple: ${growthMultiple.toFixed(2)} times`;
+      document.getElementById('emailData').value = emailData;
+  });
 
     // SWP Calculator
     document.getElementById('swpForm').addEventListener('submit', function(event) {

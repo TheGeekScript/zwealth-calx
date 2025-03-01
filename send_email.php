@@ -5,7 +5,7 @@ use TCPDF as TCPDF;
 
 // Get form data
 $email = $_POST['email'];
-$emailData = $_POST['emailData'];
+$emailData = json_decode($_POST['emailData'], true); // Decode the JSON string
 $bcc = array('web.chaitra@gmail.com');
 $calcEmailType = $_POST['calcEmailType']; // Calculator type
 
