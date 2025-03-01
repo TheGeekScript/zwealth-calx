@@ -6,9 +6,9 @@ require_once('../tcpdf/tcpdf.php');
 require_once('mail_headers.php');
 
 // Get form data
-$email = $_POST['emi_email'];
-$data  = json_decode($_POST['emi_emailData'], true); // Decode the JSON string
-$calcEmailType = $_POST['emi_calctype']; // Calculator type
+$email = $_POST['swp_email'];
+$data  = json_decode($_POST['swp_emailData'], true); // Decode the JSON string
+$calcEmailType = $_POST['swp_calctype']; // Calculator type
 
 // Validate the data
 if (json_last_error() !== JSON_ERROR_NONE || !is_array($data)) {
@@ -26,28 +26,16 @@ $html = '
         <th>VALUE</th>
     </tr>
     <tr>
-        <td>Principal Amount (Rs.)</td>
-        <td>'.$data['principalAmount'].'</td>
+        <td>Invested Amount (Rs.)</td>
+        <td>'.$data['investedAmount'].'</td>
     </tr>
     <tr>
-        <td>Rate of Interest (Annual %)</td>
-        <td>'.$data['interestRate'].'</td>
+        <td>Total Withdrawal (Rs.)</td>
+        <td>'.$data['totalWithdrawal'].'</td>
     </tr>
     <tr>
-        <td>Loan Tenure (Years)</td>
-        <td>'.$data['loanTenure'].'</td>
-    </tr>
-    <tr>
-        <td>Monthly EMI (Rs.)</td>
-        <td>'.$data['monthlyEMI'].'</td>
-    </tr>
-    <tr>
-        <td>Interest Amount (Rs.)</td>
-        <td>'.$data['interestAmount'].'</td>
-    </tr>
-    <tr>
-        <td>Total Payable (Rs.)</td>
-        <td>'.$data['totalPayable'].'</td>
+        <td>Final Value (Rs.)</td>
+        <td>'.$data['finalValue'].'</td>
     </tr>
 </table>
 ';
@@ -57,13 +45,13 @@ $pdf->writeHTMLCell(0, 0, '', '', $html, 0, 1, 0, true, '', true);
 $pdfContent = $pdf->Output($_SERVER['DOCUMENT_ROOT'] . 'zwealth-calcx.pdf', 'FI');
 
 // Save PDF to a local directory
-$pdfFileName = 'calculation-results-' . time() . '.pdf'; // Unique filename
+$pdfFileName = 'zwealth-calculation-results-' . time() . '.pdf'; // Unique filename
 $pdfFilePath = __DIR__ . '/../pdfs/' . $pdfFileName; // Save in a "pdfs" directory
 $pdf->Output($pdfFilePath, 'F'); // Save to file
 
 // Send email with PDF attachment
 $to = $email;
-$subject = 'Home Loan EMI Results';
+$subject = 'Systematic Withdrawal Plan';
 $message = 'Please find the attached PDF with your loan calculation results.';
 
 // Set headers for CC and BCC
