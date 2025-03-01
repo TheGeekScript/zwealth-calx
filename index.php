@@ -131,7 +131,71 @@
           </div>
           <div class="tab-pane fade" id="nested-content2" role="tabpanel" aria-labelledby="nested-tab2">
             <h5>Other Goal Calculator</h5>
-            <p>This is the content of Other Goal Calculator.</p>
+            <p class="col-md-10 mx-auto">This is the content of Other Goal Calculator.</p>
+            
+            <div class="row">
+              <div class="col-lg-1 col-xs-12">&nbsp;</div>
+              <div class="col-md-5">
+                <form id="lifeGoalsForm">
+                  <div class="mb-3">
+                    <label for="goalName" class="form-label">Goal Name</label>
+                    <input type="text" class="form-control" id="goalName" name="goalName" required>
+                  </div>
+                  <div class="mb-3">
+                    <div class="row">
+                      <div class="col">
+                        <label for="yearsRemaining" class="form-label">Years Remaining</label>
+                        <input type="number" class="form-control" id="yearsRemaining" name="yearsRemaining" required value="25">
+                      </div>
+                      <div class="col">
+                        <label for="costToday" class="form-label">Cost Today (₹)</label>
+                        <input type="number" class="form-control" id="costToday" name="costToday" required value="10000000">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mb-3">
+                    <div class="row">
+                      <div class="col">
+                        <label for="inflationRate" class="form-label">Expected Inflation Rate (%)</label>
+                        <input type="number" class="form-control" id="inflationRate" name="inflationRate" required value="8">
+                      </div>
+                      <div class="col">
+                        <label for="expectedReturns" class="form-label">Expected Returns (%)</label>
+                        <input type="number" class="form-control" id="expectedReturns" name="expectedReturns" required value="12">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="existingInvestment" class="form-label">Existing Investment (₹)</label>
+                    <input type="number" class="form-control" id="existingInvestment" name="existingInvestment" required value="10000">
+                  </div>
+                  <button type="submit" class="btn btn-primary">Calculate</button>
+                </form>
+              </div>
+              <div class="col-md-5">
+                <div class="result" id="result">
+
+                  <h5><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-calculator" viewBox="0 0 16 16">  <path d="M12 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/><path d="M4 2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5zm0 4a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5z"/></svg> OTHER LIFE GOALS</h5><hr>
+
+                  <p>Recommended Target Amount</p>
+                  <h2 id="recommendedTargetAmount">₹0</h2><hr>
+                  <p>Required Investment Amount</p>
+                  <h2 id="requiredInvestmentAmount">₹0</h2>
+                      
+                  <form id="othergoal_emailForm" method="POST">
+                    <div class="input-group mb-3">
+                      <input type="text" class="form-control" placeholder="Email ID" aria-label="Email ID" aria-describedby="button-addon6" id="othergoal_email" name="othergoal_email" required>
+                      <input type="hidden" id="othergoal_emailData" name="othergoal_emailData" value="">
+                      <input type="hidden" id="othergoal_calctype" name="othergoal_calctype" value="othergoal">
+                      <button class="btn btn-outline-secondary" type="submit" id="button-addon6">Send to email</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div class="col-lg-1 col-xs-12">&nbsp;</div>
+            </div>
+            <div id="othergoal_message" class="mt-3 pt-3"></div>
+
           </div>
         </div>
       </div>
@@ -399,6 +463,7 @@
 
   <script>
 
+  // retirement cal
   document.getElementById('retirementForm').addEventListener('submit', function(event) {
     event.preventDefault();
 
@@ -443,11 +508,10 @@
 
     // Store the array/object in the hidden input field as a JSON string
     document.getElementById('retirement_emailData').value = JSON.stringify(emailData);
-    console.log(emailData);
 
   });
-    // Handle Retirement Calculator email form submission
-    document.getElementById('retirement_emailForm').addEventListener('submit', async function (event) {
+  // Handle Retirement Calculator email form submission
+  document.getElementById('retirement_emailForm').addEventListener('submit', async function (event) {
     event.preventDefault();
 
     const retirement_email = document.getElementById('retirement_email').value;
@@ -467,6 +531,69 @@
     } catch (error) {
         console.error('Error:', error);
         document.getElementById('retirement_message').innerHTML = '<div class="alert alert-danger alert-dismissible fade show">An error occurred. Please try again.<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
+    }
+  });
+
+  // life goal calc
+  document.getElementById('lifeGoalsForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    // Get input values
+    const goalName = document.getElementById('goalName').value;
+    const yearsRemaining = parseInt(document.getElementById('yearsRemaining').value);
+    const costToday = parseFloat(document.getElementById('costToday').value);
+    const inflationRate = parseFloat(document.getElementById('inflationRate').value) / 100;
+    const expectedReturns = parseFloat(document.getElementById('expectedReturns').value) / 100;
+    const existingInvestment = parseFloat(document.getElementById('existingInvestment').value);
+
+    // Step 1: Calculate Recommended Target Amount
+    const recommendedTargetAmount = costToday * Math.pow(1 + inflationRate, yearsRemaining);
+
+    // Step 2: Calculate Required Investment Amount
+    const futureValueOfExistingInvestment = existingInvestment * Math.pow(1 + expectedReturns, yearsRemaining);
+    const monthlyRate = expectedReturns / 12;
+    const totalPayments = yearsRemaining * 12;
+    const requiredInvestmentAmount = (recommendedTargetAmount - futureValueOfExistingInvestment) * (monthlyRate / (Math.pow(1 + monthlyRate, totalPayments) - 1));
+
+    // Format numbers with commas for better readability
+    const formatNumber = (num) => num.toLocaleString('en-IN', { maximumFractionDigits: 0 });
+
+    // Display results
+    document.getElementById('recommendedTargetAmount').innerText = `₹${formatNumber(recommendedTargetAmount)}`;
+    document.getElementById('requiredInvestmentAmount').innerText = `₹${formatNumber(requiredInvestmentAmount)}`;
+  
+    // Prepare email data as an array/object
+    const emailData = {
+      recommendedTargetAmount: `${formatNumber(recommendedTargetAmount)}`,
+      requiredInvestmentAmount: `${formatNumber(requiredInvestmentAmount)}`,
+    };
+
+    // Store the array/object in the hidden input field as a JSON string
+    document.getElementById('othergoal_emailData').value = JSON.stringify(emailData);
+    console.log(emailData);
+
+  });
+  // Handle Home Loan EMI Calculator email form submission
+  document.getElementById('othergoal_emailForm').addEventListener('submit', async function (event) {
+    event.preventDefault();
+
+    const othergoal_email = document.getElementById('othergoal_email').value;
+    const othergoal_emailData = document.getElementById('othergoal_emailData').value;
+    const othergoal_calctype = document.getElementById('othergoal_calctype').value;
+    try {
+        const response = await fetch('mails/othergoal_mail.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: `othergoal_email=${encodeURIComponent(othergoal_email)}&othergoal_emailData=${encodeURIComponent(othergoal_emailData)}&othergoal_calctype=${encodeURIComponent(othergoal_calctype)}`,
+        });
+
+        const result = await response.text();
+        document.getElementById('othergoal_message').innerHTML = result;
+    } catch (error) {
+        console.error('Error:', error);
+        document.getElementById('othergoal_message').innerHTML = '<div class="alert alert-danger alert-dismissible fade show">An error occurred. Please try again.<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
     }
   });
 
